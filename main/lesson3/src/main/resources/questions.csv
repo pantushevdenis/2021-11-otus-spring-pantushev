@@ -1,0 +1,9 @@
+1;3;What is Spring written in?;Delphi;C++;Java;1C;Brainfuck
+2;4;Which of following is not Spring module?;AOP;O/R Integration;Spring MVC;HTML/JSP
+3;2;Which exception class is related to all the exceptions that are thrown in spring application?;ArrayIndexOutOfBound;DataAccessException;NullPointerException;SpringException
+4;1;What are different types of Bean Injection?;constructor and setter;constructor and getter;getter and setter;setter, getter and constructor
+5;4;What are Different Autowire type?;byName, byType, destructor and autodetect;byName, byMethod, constructor and autodetect;byName, byType, constructor and autocorrect;byName, byType, constructor and autodetect
+6;1;IoC or Dependenc Injection is a ...;Design pattern;Framework;Java module;ORM framework
+7;4;Controller in Spring is ...;a abstract class;concrete class;final class;an interface
+8;2;Which of the following is true?;ApplicationContext implements BeanFactory;ApplicationContext extends BeanFactory;BeanFactory extends ApplicationContext;BeanFactory implements ApplicationContext
+9;2;Beans defined in spring framesork are by default ...;Abstract;Singletone;Final;initialized

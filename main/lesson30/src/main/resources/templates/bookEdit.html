@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" type="text/css" href="../static/common.css" th:href="@{/common.css}">
+    <meta charset="UTF-8">
+    <title>Hello to Book</title>
+</head>
+<body>
+<div th:replace="_main::body"></div>
+<div th:remove="All">
+    <div th:fragment="allcontent">
+        <div id="menu">
+            <span><a href="books.html" th:href="@{/books}">Книги</a></span>|
+            <span><a href="index.html" th:href="@{/}">Главная</a></span>|
+            <span><a href="authors.html" th:href="@{/authors}">Авторы</a></span>|
+            <span><a href="jenres.html" th:href="@{/jenres}">Жанры</a></span></div>
+        <div id="content">
+        <form id="edit-form" action="bookEdit.html" th:action="@{/books/save(id=${book.id})}" th:method="post" th:object="${book}">
+            <h1>Редактирование/добавление информации по книге</h1>
+            <input id="isEdit-input" name="isEdit" type="hidden" th:value="${isEdit.booleanValue()}" value="true" />
+            <table class="edit-form-table">
+                <tbody>
+                <tr th:if="${isEdit.booleanValue()}">
+                    <th>Id:</th><th><input id="id-input" name="id" type="text" readonly="readonly" th:value="*{id}" value="1"/></th>
+                </tr>
+                <tr>
+                    <th>Наименование:</th><th><input id="name-input" name="name" type="text" th:value="*{name}" value="Какое-то наименование книги"/></th>
+                    <th id="name-warning" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Сообщение об ошибке</th>
+                </tr>
+                <tr>
+                    <th>Автор:</th><th>
+                    <select id="author-input" th:field="*{author}" name="author">
+                        <option th:if="${not isEdit.booleanValue()}" selected="selected" value="">---</option>
+                        <option
+                                th:each="author : ${authorsList}"
+                                th:value="${author.id}"
+                                th:text="${author.name}"
+                                selected="selected" th:selected="${book.author != null and book.author.id == author.id}">Какой-то автор</option>
+                    </select></th>
+                    <th id="author-warning" th:if="${#fields.hasErrors('author')}" th:errors="*{author}">Сообщение об ошибке</th>
+                </tr>
+                <tr>
+                    <th>Жанр:</th><th>
+                    <select id="jenre-input" th:field="*{jenre}" name="jenre">
+                        <option th:if="${not isEdit.booleanValue()}" selected="selected" value="">---</option>
+                        <option
+                                th:each="jenre : ${jenresList}"
+                                th:value="${jenre.id}"
+                                th:text="${jenre.name}"
+                                selected="selected" th:selected="${book.jenre != null and book.jenre.id == jenre.id }">Какой-то жанр</option>
+                    </select></th>
+                    <th id="jenre-warning" th:if="${#fields.hasErrors('jenre')}" th:errors="*{jenre}">Сообщение об ошибке</th>
+                </tr>
+                <tr>
+                    <th>Год издания:</th><th><input id="publishingYear-input" th:name="publishingYear" name=publishingYear"" type="number" th:value="*{publishingYear}" value="2001"/></th>
+                </tr>
+                </tbody>
+            </table>
+            <button type="submit">Сохранить</button>
+            <a href="books.html" th:href="@{/books}"><button type="button">Отмена</button></a>
+
+        </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

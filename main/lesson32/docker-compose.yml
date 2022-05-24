@@ -1,0 +1,14 @@
+services:
+  lesson32-web:
+    image: pantyushev-lesson32
+    ports:
+      - 8080:8080
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev-docker
+    depends_on:
+      - lesson32-mysql-db
+  lesson32-mysql-db:
+    image: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=myDB

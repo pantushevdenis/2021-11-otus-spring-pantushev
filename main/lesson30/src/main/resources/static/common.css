@@ -1,0 +1,28 @@
+.header {
+    background-color: darkorange;
+    text-align: right;
+}
+.footer {
+    background-color: darkgray;
+}
+.persons {
+    border: 1px solid steelblue;
+    width: 300px;
+    border-collapse: collapse;
+}
+
+.table-list {
+    padding: 5px;
+    border: 1px solid steelblue;
+}
+.table-list th {
+    padding: 5px;
+    border: 1px solid steelblue;
+}
+.table-list td {
+    padding: 5px;
+    border: 1px solid steelblue;
+}
+.edit-form-table {
+    border: none;
+}

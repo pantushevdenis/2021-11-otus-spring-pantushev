@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Hello to metadata editor</title>
+    <link rel="stylesheet" type="text/css" href="../static/common.css" th:href="common.css">
+    <meta charset="UTF-8">
+    <th:block th:replace="~{_main :: head-common}" />
+</head>
+<body>
+<div th:replace="_main::body" />
+
+
+<div th:remove="All">
+    <div th:fragment="allcontent">
+        <div id="menu">
+            <span><a href="tables.html" th:href="@{/tables}">Таблицы</a></span>|
+            <span><a href="fields.html" th:href="@{/fields}">Поля</a></span>
+        </div>
+        <div id="content">
+            <h1>Metadata editor</h1>
+            <p>Добро пожаловать: Редактор метаданных ccb.</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

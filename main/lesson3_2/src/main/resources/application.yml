@@ -1,0 +1,25 @@
+interface:
+    locale:
+examcalcresult:
+    passingpercent: 75
+questionsdao:
+    resourcecsv:
+        filename: questions.csv
+
+spring:
+    messages:
+        basename: i18n/messages
+
+---
+spring:
+    profiles: EN
+interface:
+    locale: en-EN
+
+---
+spring:
+    profiles: RU
+interface:
+    locale: ru-RU
+
+

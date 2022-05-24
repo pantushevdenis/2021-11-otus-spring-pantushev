@@ -1,0 +1,76 @@
+spring:
+  main:
+    allow-circular-references: true
+  datasource:
+    url: jdbc:h2:mem:testdb
+    ##initialization-mode: always
+  sql:
+    init:
+      mode: embedded
+      ##data-locations: data.sql
+      ##schema-locations: schema.sql
+  web:
+    resources:
+      ##static-locations: classpath:/static/
+  mvc:
+    ##static-path-pattern: /**
+  jpa:
+    generate-ddl: false
+    hibernate:
+      ddl-auto: none
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.OracleDialect
+management:
+  endpoints:
+    enabled-by-default: false
+    web:
+      base-path: /
+      exposure:
+        include: "*"
+  endpoint:
+    #auditevents:
+    #enabled: true
+    beans:
+    #enabled: true
+    caches:
+    #enabled: true
+    info:
+      enabled: true
+    health:
+      enabled: true
+      show-details: always
+    env:
+    #enabled: true
+    metrics:
+      enabled: true
+    heapdump:
+    #enabled: true
+    logfile:
+      enabled: true
+
+---
+spring:
+  config:
+    activate:
+      on-profile: develop-bfl-pesc
+  datasource:
+
+
+
+
+---
+spring:
+  config:
+    activate:
+      on-profile: debug-sql
+  jpa:
+    show-sql: true
+
+
+
+
+

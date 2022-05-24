@@ -1,0 +1,23 @@
+###
+GET http://localhost:8080
+
+### GET authors
+GET http://localhost:8080/api/authors
+
+### GET books
+GET http://localhost:8080/api/books
+
+### put api/book
+PUT http://localhost:8080/api/book
+Accept: application/json
+Content-Type: application/json; charset=UTF-8
+
+{
+  "id": "1",
+  "name": "Пр333222иключения Буратино",
+  "authorId": "1",
+  "jenreId": "6",
+  "publishingYear": "2011"
+}
+
+###

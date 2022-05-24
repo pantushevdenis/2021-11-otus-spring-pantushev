@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Hello to metadata editor</title>
+    <link rel="stylesheet" type="text/css" href="../static/common.css" th:href="common.css">
+    <meta charset="UTF-8">
+    <script src="../static/tableLangs.js" th:src="@{/tableLangs.js}"></script>
+    <th:block th:replace="~{_main :: head-common}" />
+</head>
+<body>
+<div th:replace="_main::body" />
+
+
+<div th:remove="All">
+    <div th:fragment="allcontent">
+        <div id="menu">
+            <span><a href="index.html" th:href="@{/}">Главная</a></span>|
+            <span><a href="tables.html" th:href="@{/table}">Таблицы</a></span>|
+            <span><a href="fields.html" th:href="@{/field}">Поля</a></span>|
+        </div>
+        <div id="content">
+            <h1>Таблицы - наименования (CI_MD_TBL_L)</h1>
+            <h3 id="text-tableName" th:text="${table_name}">Название таблицы</h3>
+            <input id="input-tableName" type="hidden" value="название таблицы" th:value="${table_name}" />
+            <table class="table-list" id="tables-list">
+                <thead>
+                    <tr>
+                        <th>Язык</th>
+                        <th>Наименование</th>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>ENG</td>
+                    <td>Directory of consumption norm</td>
+                </tr>
+                </tbody>
+            </table>
+            <a href="tableLangEdit.html" th:href="@{/tableLangs/add(table_name=${table_name})}">Добавить информацию по наименованию таблицы</a>
+        </div>
+    </div>
+</div>
+<script>reloadTableList()</script>
+</body>
+</html>

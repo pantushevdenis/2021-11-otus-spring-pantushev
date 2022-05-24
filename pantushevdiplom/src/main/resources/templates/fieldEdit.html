@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Hello to metadata editor</title>
+    <link rel="stylesheet" type="text/css" href="../static/common.css" th:href="common.css">
+    <meta charset="UTF-8">
+    <script src="../static/fields.js" th:src="@{/fields.js}"></script>
+    <th:block th:replace="~{_main :: head-common}" />
+</head>
+<body>
+<div th:replace="_main::body" />
+
+
+<div th:remove="All">
+    <div th:fragment="allcontent">
+        <div id="menu">
+            <span><a href="index.html" th:href="@{/}">Главная</a></span>|
+            <span><a href="tables.html" th:href="@{/tables}">Таблицы</a></span>|
+            <span><a href="fields.html" th:href="@{/fields}">Поля</a></span>
+        </div>
+        <div id="content">
+            <h1>Редактирование/Добавление информации по полю (CI_MD_FLD)</h1>
+            <form id="edit-form">
+                <table class="edit-form-table">
+                    <tbody>
+                    <input id="isEdit-input" name="isEdit" type="hidden" th:value="${isEdit.booleanValue()}" value="false" />
+                    <tr>
+                        <td>Id:</td><td><input id="id-input" name="id" type="text" th:value="${id}" value=""/></td>
+                    </tr>
+                    <tr>
+                        <td>Тип данных:</td><td><input id="dataTypeFlg-input" name="dataTypeFlg" type="text" th:value="${dataTypeFlg}"/></td>
+                    </tr>
+                    <tr>
+                        <td>Значность:</td><td><input id="signedSw-input" name="signedSw" type="checkbox" th:value="${signedSw}"/></td>
+                    </tr>
+                    <tr>
+                        <td>Количество символов:</td><td><input id="fldPrecision-input" name="dataTypeFlg" type="number" th:value="${fldPrecision}"/></td>
+                    </tr>
+                    <tr>
+                        <td>Точность:</td><td><input id="fldScale-input" name="dataTypeFlg" type="number" th:value="${fldScale}"/></td>
+                    </tr>
+                    <tr>
+                        <td>Наименование объекта класса:</td><td><input id="objPropertyName-input" name="name" type="text" value="Введите наименование обекта класса"/></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div id="errors" class="edit-form-errors" th:text="''">Какая-то ошибка</div>
+                <input type="button" onclick="saveObject()" value="Сохранить" />
+                <a href="tables.html" th:href="@{/tables}"><button type="button">Отмена</button></a>
+
+            </form>
+        </div>
+    </div>
+</div>
+<script>loadObjectEdit()</script>
+</body>
+</html>

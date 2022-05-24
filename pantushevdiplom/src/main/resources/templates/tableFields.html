@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Hello to metadata editor</title>
+    <link rel="stylesheet" type="text/css" href="../static/common.css" th:href="common.css">
+    <meta charset="UTF-8">
+    <script src="../static/tableFields.js" th:src="@{/tableFields.js}"></script>
+    <th:block th:replace="~{_main :: head-common}" />
+</head>
+<body>
+<div th:replace="_main::body" />
+
+
+<div th:remove="All">
+    <div th:fragment="allcontent">
+        <div id="menu">
+            <span><a href="index.html" th:href="@{/}">Главная</a></span>|
+            <span><a href="tables.html" th:href="@{/table}">Таблицы</a></span>|
+            <span><a href="fields.html" th:href="@{/field}">Поля</a></span>|
+        </div>
+        <div id="content">
+            <h1>Поля таблицы (CI_MD_TBL_FLD)</h1>
+            <h3 id="text-tableName" th:text="${table_name}">название таблицы</h3>
+            <input id="input-tableName" type="hidden" value="название таблицы" th:value="${table_name}" />
+            <div id="nav-buttons">
+                <input id="input-size" type="hidden" value="30"  th:value="${size}" />
+                <button id="button-prev" onclick="loadTableListPrev()" disabled="true">Предыдущая</button>
+                <button id="button-reload" onclick="reloadTableList()">Запросить</button>
+                <span>cтраницу<input id="input-page" type="number" value="0" th:valu /></span>
+                из <span id="text-totalPages"></span>
+                <button id="button-next" onclick="loadTableListNext()">Следующая</button>
+            </div>
+            <table class="table-list" id="tables-list">
+                <thead>
+                    <tr>
+                        <th>Имя поля</th>
+                        <th>№ п/п</th>
+                        <th>Обязательное</th>
+                        <th>Позволен NULL</th>
+                        <th>Проверять</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>START_DT                      </td>
+                    <td>2</td>
+                    <td>true</td>
+                    <td>false</td>
+                    <td>true</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script>reloadTableList()</script>
+</body>
+</html>

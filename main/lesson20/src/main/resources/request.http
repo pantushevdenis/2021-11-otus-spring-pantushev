@@ -1,0 +1,36 @@
+###
+GET http://localhost:8080
+
+### GET authors
+GET http://localhost:8080/api/authors
+
+###GET dropdown authors
+GET http://localhost:8080/api/dropdowns/authors
+
+###GET jenres
+GET http://localhost:8080/api/jenres
+
+###GET dropdowns jenres
+GET http://localhost:8080/api/dropdowns/jenres
+
+### GET books
+GET http://localhost:8080/api/books
+
+### GET book
+GET http://localhost:8080/api/book/623d56072ee31974d2161545
+
+### put book
+PUT http://localhost:8080/api/book
+Accept: application/json
+Content-Type: application/json; charset=UTF-8
+
+{
+  "id":"623d66f22ee31974d2161642",
+  "name":"Пр111иключения Буратино",
+  "authorId":"623d57b52ee31974d216156d",
+  "jenreId":"623d57b52ee31974d2161569",
+  "publishingYear":"2011"
+}
+
+###del book
+DELETE http://localhost:8080/api/book/623d5cc22ee31974d21615c6

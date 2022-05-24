@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Hello to metadata editor</title>
+    <link rel="stylesheet" type="text/css" href="../static/common.css" th:href="common.css">
+    <meta charset="UTF-8">
+    <script src="../static/tableLangs.js" th:src="@{/tableLangs.js}"></script>
+    <th:block th:replace="~{_main :: head-common}" />
+</head>
+<body>
+<div th:replace="_main::body" />
+
+
+<div th:remove="All">
+    <div th:fragment="allcontent">
+        <div id="menu">
+            <span><a href="index.html" th:href="@{/}">Главная</a></span>|
+            <span><a href="tables.html" th:href="@{/tables}">Таблицы</a></span>|
+            <span><a href="fields.html" th:href="@{/fields}">Поля</a></span>
+        </div>
+        <div id="content">
+            <h1>Редактирование/Добавление информации по наименованиям таблиц (CI_MD_TBL_L)</h1>
+            <form id="edit-form">
+                <table class="edit-form-table">
+                    <tbody>
+                    <input id="isEdit-input" name="isEdit" type="hidden" th:value="${isEdit.booleanValue()}" value="false" />
+                    <tr>
+                        <td>tableName:</td><td><input id="tableName-input" name="tableName" type="text" th:value="${tableName}"
+                            readonly="readonly"/></td>
+                    </tr>
+                    <tr>
+                        <td>Язык:</td><td><input id="languageCd-input" name="languageCd" type="text" th:value="${languageCd}"/></td>
+                    </tr>
+                    <tr>
+                        <td>Наименование:</td><td><input id="descr-input" name="descr" type="text" value="Введите наименование"/></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div id="errors" class="edit-form-errors" th:text="''">Какая-то ошибка</div>
+                <input type="button" onclick="saveObject()" value="Сохранить" />
+                <a href="tables.html" th:href="@{/tables}"><button type="button">Отмена</button></a>
+
+            </form>
+        </div>
+    </div>
+</div>
+<script>loadObjectEdit()</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" type="text/css" href="../static/common.css" th:href="common.css">
+    <meta charset="UTF-8">
+    <title>Hello to Book</title>
+</head>
+<body>
+<div th:replace="_main::body"></div>
+<div th:remove="All">
+    <div th:fragment="allcontent">
+        <div id="menu" class="menu">
+            <span><a href="index.html" th:href="@{/}">Главная</a></span>|
+            <span><a href="authors.html" th:href="@{/authors}">Авторы</a></span>|
+            <spa><a href="jenres.html" th:href="@{/jenres}">Жанры</a></spa></div>
+        <div id="content">
+            <h1>Наши книги</h1>
+            <form id="book-table-sorted-form" th:action="@{/books/setSorted}" th:method="post" th:object="${sorted}">
+                Сортировка:
+                <select id="book-table-sorted-select" th:field="*{id}" >
+                    <option value="0">id</option>
+                    <option value="1">Наименование</option>
+                    <option value="2">Автор</option>
+                    <option value="3">Жанр</option>
+                    <option value="4">Год издания</option>
+                </select>
+                <button type="submit">Отсортировать</button>
+            </form>
+            <table class="table-list">
+                <thead><tr><th>id</th><th>Наименование</th><th>Автор</th><th>Жанр</th><th>Год издания</th><th th:if="${authenticationCommonPageDataDto.isUserWriter()}"></th>
+                    <th th:if="${authenticationCommonPageDataDto.isAdmin()}"></th></tr></thead>
+                <tbody>
+                <tr th:each="book : ${books}">
+                    <td th:text="${book.id}">1</td>
+                    <td th:text="${book.name}">Какое-то наименование книги</td>
+                    <td th:text="${book.author.name}">Наименование автора</td>
+                    <td th:text="${book.jenre.name}">Наименование жанра</td>
+                    <td th:text="${book.publishingYear}">Год публикации</td>
+                    <td th:if="${authenticationCommonPageDataDto.isUserWriter()}"><a href="bookEdit.html" th:href="@{/books/edit(id=${book.id})}">Редактировать</a></td>
+                    <td th:if="${authenticationCommonPageDataDto.isAdmin()}"><a href="bookDelete.html" th:href="@{/books/delete(id=${book.id})}">Удалить</a></td>
+                </tr>
+                </tbody>
+            </table>
+            <a href="bookEdit.html" th:if="${authenticationCommonPageDataDto.isUserWriter()}" th:href="@{/books/add}">Добавить книгу</a>
+        </div>
+
+        <div th:if="${showInfo}">
+            show info for debug and learning<br />
+            <div th:text="${debugShowInfo}">Инфа дебаговская и для обучения</div>
+        </div>
+    </div>
+</div>
+</html>

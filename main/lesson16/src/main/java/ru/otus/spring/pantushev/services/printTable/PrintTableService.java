@@ -1,0 +1,7 @@
+package ru.otus.spring.pantushev.services.printTable;
+
+import ru.otus.spring.pantushev.domain.Printable;
+
+public interface PrintTableService<T extends Printable> {
+    void printTable(Iterable<T> table, Class<? extends Printable> elementClass);
+}

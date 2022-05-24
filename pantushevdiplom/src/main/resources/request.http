@@ -1,0 +1,70 @@
+### GET CI_MD_TBL - all
+GET http://localhost:8080/api/table
+
+### GET CI_MD_TBL - all paged
+GET http://localhost:8080/api/table?page=82
+
+### GET CI_MD_TBL - all paged
+GET http://localhost:8080/api/table?page=81&prev=true
+
+### GET CI_MD_TBL - all paged
+GET http://localhost:8080/api/table?page=81&next=true
+
+### GET CI_MD_TBL - filter
+GET http://localhost:8080/api/table?name_filter=CI_COLL
+
+### GET CI_MD_TBL - filter paged
+GET http://localhost:8080/api/table?name_filter=CI_COLL&page=1&size=2
+
+
+### GET CI_MD_TBL - CM_CONSUMPTION_NORM
+GET http://localhost:8080/api/table/CM_CONSUMPTION_NORM
+
+### GET CI_MD_TBL_L - CM_CONSUMPTION_NORM/lanugage
+GET http://localhost:8080/api/table/CM_CONSUMPTION_NORM/language
+
+### GET CI_MD_TBL_L - CM_CONSUMPTION_NORM/language/RUS
+GET http://localhost:8080/api/table/CM_CONSUMPTION_NORM/language/RUS
+
+
+#
+
+### GET CI_MD_FLD - ALL
+GET http://localhost:8080/api/field
+
+
+### GET CI_MD_FLD - filter
+GET http://localhost:8080/api/field?name_filter=VALUE
+
+
+### GET CI_MD_FLD - VALUE_ALG_CD
+GET http://localhost:8080/api/field/VALUE_ALG_CD
+
+
+### GET CI_MD_FLD_L - VALUE_ALG_CD/language
+GET http://localhost:8080/api/field/VALUE_ALG_CD/language
+
+
+### GET CI_MD_FLD_L - VALUE_ALG_CD/language/RUS
+GET http://localhost:8080/api/field/VALUE_ALG_CD/language/RUS
+
+
+#
+
+### GET CI_MD_TABlE_FLD - CM_CONSUMPTION_NORM all
+GET http://localhost:8080/api/table/CM_CONSUMPTION_NORM/field
+
+### GET CI_MD_TABlE_FLD - CM_CONSUMPTION_NORM filter
+GET http://localhost:8080/api/table/CM_CONSUMPTION_NORM/field?name_filter=CHAR_VAL
+
+### GET CI_MD_TABlE_FLD - CM_CONSUMPTION_NORM/field/CHAR_VAL
+GET http://localhost:8080/api/table/CM_CONSUMPTION_NORM/field/CHAR_VAL
+
+### GET CI_MD_TABLE_FLD_L - CM_CONSUMPTION_NORM/field/CHAR_VAL all
+GET http://localhost:8080/api/table/CM_CONSUMPTION_NORM/field/CHAR_VAL/language
+
+### GET CI_MD_TABLE_FLD_L - CM_CONSUMPTION_NORM/field/CHAR_VAL all
+GET http://localhost:8080/api/table/CI_COLL_CRIT_CT/field/COLL_CAT_PRIO_FLG/language
+
+### GET CI_MD_TABLE_FLD_L - CM_CONSUMPTION_NORM/field/CHAR_VAL/RUS
+GET http://localhost:8080/api/table/CM_CONSUMPTION_NORM/field/CHAR_VAL/language/RUS

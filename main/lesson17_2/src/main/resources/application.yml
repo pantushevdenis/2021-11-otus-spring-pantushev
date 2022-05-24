@@ -1,0 +1,49 @@
+spring:
+  main:
+    allow-circular-references: true
+  datasource:
+    url: jdbc:h2:mem:testdb
+    ##initialization-mode: always
+  sql:
+    init:
+      mode: embedded
+      ##data-locations: data.sql
+      ##schema-locations: schema.sql
+  web:
+    resources:
+      ##static-locations: classpath:/static/
+  mvc:
+    ##static-path-pattern: /**
+
+
+
+  jpa:
+    generate-ddl: false
+    hibernate:
+      ddl-auto: none
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        ##dialect: org.hibernate.dialect.PostgreSQL10Dialect
+
+
+  h2:
+    console:
+      path: /h2-console
+      settings:
+        web-allow-others: true
+
+---
+spring:
+  config:
+    activate:
+      on-profile: debug-sql
+  jpa:
+    show-sql: true
+
+
+
+
+

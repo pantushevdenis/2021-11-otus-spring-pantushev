@@ -1,0 +1,46 @@
+1. What is Spring written in?
+    1. Delphi
+    2. C++
+    3. Java \/
+    4. 1C
+    5. Brainfuck
+2. Which of following is not Spring module?
+    1. AOP
+    2. O/R Integration
+    3. Spring MVC
+    4. HTML/JSP \/
+3.  Which exception class is related to all the exceptions that are thrown in spring application?
+    1. ArrayIndexOutOfBound
+    2. DataAccessException \/
+    3. NullPointerException
+    4. SpringException
+4. What are different types of Bean Injection?
+    1. constructor and setter \/
+    2. constructor and getter
+    3. getter and setter
+    4. setter, getter and constructor
+5. What are Different Autowire type?
+    1. byName, byType, destructor and autodetect
+    2. byName, byMethod, constructor and autodetect
+    3. byName, byType, constructor and autocorrect
+    4. byName, byType, constructor and autodetect \/
+6. IoC or Dependenc Injection is a ...
+    1. Design pattern \/
+    2. Framework
+    3. Java module
+    4. ORM framework
+7. Controller in Spring is ...
+    1. a abstract class
+    2. concrete class
+    3. final class
+    4. an interface \/
+8. Which of the following is true?
+    1. ApplicationContext implements BeanFactory
+    2. ApplicationContext extends BeanFactory \/
+    3. BeanFactory extends ApplicationContext
+    4. BeanFactory implements ApplicationContext
+9. Beans defined in spring framesork are by default ...
+    1. Abstract
+    2. Singletone \/
+    3. Final
+    4. initialized

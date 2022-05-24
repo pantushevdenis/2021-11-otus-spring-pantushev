@@ -1,0 +1,66 @@
+### GET CI_MD_TBL - all
+GET http://localhost:8080/api/table
+
+### GET CI_MD_TBL - all paged
+GET http://localhost:8080/api/table?page=82
+
+### GET CI_MD_TBL - all paged
+GET http://localhost:8080/api/table?page=81&prev=true
+
+### GET CI_MD_TBL - all paged
+GET http://localhost:8080/api/table?page=81&next=true
+
+### GET CI_MD_TBL - filter
+GET http://localhost:8080/api/table?name_filter=CI_COLL
+
+### GET CI_MD_TBL - filter paged
+GET http://localhost:8080/api/table?name_filter=CI_COLL&page=1&size=2
+
+
+### GET CI_MD_TBL - CM_CONSUMPTION_NORM
+GET http://localhost:8080/api/table/CM_CONSUMPTION_NORM
+
+### GET CI_MD_TBL_L - CM_CONSUMPTION_NORM/lanugage
+GET http://localhost:8080/api/table/CM_CONSUMPTION_NORM/language
+
+### GET CI_MD_TBL_L - CM_CONSUMPTION_NORM/language/RUS
+GET http://localhost:8080/api/table/CM_CONSUMPTION_NORM/language/RUS
+
+
+### POST CI_MD_TBL - must be ok
+POST http://localhost:8080/api/table
+Accept: application/json
+Content-Type: application/json; charset=UTF-8
+
+{
+  "id": "BB1",
+  "keyTypeFlg": "    ",
+  "objEntityName": "cmBB1"
+}
+
+### POST CI_MD_TBL - must be exception
+POST http://localhost:8080/api/table
+Accept: application/json
+Content-Type: application/json; charset=UTF-8
+
+{
+  "id": "    ",
+  "keyTypeFlg": "    ",
+  "objEntityName": "cmBB1"
+}
+
+
+### GET CI_MD_TBL - filter
+GET http://localhost:8080/api/table?name_filter=BB1
+
+### PUT CI_MD_TBL - must be ok
+PUT http://localhost:8080/api/table
+Accept: application/json
+Content-Type: application/json; charset=UTF-8
+
+{
+  "id": "BB1",
+  "keyTypeFlg": "    ",
+  "objEntityName": "cmBB2"
+}
+

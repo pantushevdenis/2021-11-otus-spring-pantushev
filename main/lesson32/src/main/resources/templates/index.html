@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" type="text/css" href="../static/common.css" th:href="common.css">
+    <meta charset="UTF-8">
+    <title>Hello to Book</title>
+</head>
+<body>
+<div th:replace="_main::body"></div>
+<div th:remove="All">
+    <div th:fragment="allcontent">
+        <div id="menu">
+            <span><a href="books.html" th:href="@{/books}">Книги</a></span>|
+            <span><a href="authors.html" th:href="@{/authors}">Авторы</a></span>|
+            <span><a href="jenres.html" th:href="@{/jenres}">Жанры</a></span>
+        </div>
+        <div id="content">
+            <h1>Book pandemonium</h1>
+            <p>Добро пожаловать на  сайт "Книжное столпотворение"! Здесь вы найдете всю информацию по книгам и сами сможете добавить любую информацию по своим
+                любимым и нелюбимым книгам.</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

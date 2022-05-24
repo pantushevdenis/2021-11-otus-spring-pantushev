@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" type="text/css" href="../static/common.css" th:href="@{/common.css}">
+    <meta charset="UTF-8">
+    <title>Hello to Book</title>
+    <script src="../static/jquery-3.6.0.min.js" th:src="@{/jquery-3.6.0.min.js}"></script>
+    <script src="../static/books.js" th:src="@{/books.js}"></script>
+</head>
+<body>
+<div id="header" class="header">
+    <h1>Book pandemonium</h1>
+    <div id="menu"><span>
+        <a href="index.html" th:href="@{/}">Главная</a></span>|
+        <span><a href="books.html" th:href="@{/books}">Книги</a></span>|
+        <spa><a href="jenres.html" th:href="@{/jenres}">Жанры</a></spa></div>
+</div>
+<div id="content">
+    <h3>Наши авторы:</h3>
+    <table class="table-list" id="authors-list">
+        <thead><tr><th>id</th><th>Полное имя</th><th>Краткое имя</th><th>Дата рождения</th></tr></thead>
+        <tbody>
+        </tbody>
+    </table>
+
+</div>
+
+<footer id="footer" class="footer">(C) Book pandemonium, Pantyushev Denis, 2022</footer>
+
+<script>
+    $(document).ready(loadAuthorsList());
+</script>
+</body>
+</html>

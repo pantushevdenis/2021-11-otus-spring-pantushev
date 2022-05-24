@@ -1,0 +1,40 @@
+spring:
+  main:
+    allow-circular-references: true
+  data:
+    mongodb:
+      #uri: mongodb+srv://Dennis:12345@cluster0.ykl6u.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+      #database: myFirstDatabase
+      host: localhost
+      port: 27017
+      database: stub
+
+---
+spring:
+  config:
+    activate:
+      on-profile: debug-sql
+
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+  data:
+    mongodb:
+      database: bookDb
+initializeDb: true
+
+---
+spring:
+  config:
+    activate:
+      on-profile: unit-test
+  data:
+    mongodb:
+      database: bookDbUnitTest
+
+
+
+
+

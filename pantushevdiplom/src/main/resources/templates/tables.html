@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Hello to metadata editor</title>
+    <link rel="stylesheet" type="text/css" href="../static/common.css" th:href="common.css">
+    <meta charset="UTF-8">
+    <script src="../static/tables.js" th:src="@{/tables.js}"></script>
+    <th:block th:replace="~{_main :: head-common}" />
+</head>
+<body>
+<div th:replace="_main::body" />
+
+
+<div th:remove="All">
+    <div th:fragment="allcontent">
+        <div id="menu">
+            <span><a href="index.html" th:href="@{/}">Главная</a></span>|
+            <span><a href="fields.html" th:href="@{/fields}">Поля</a></span>|
+        </div>
+        <div id="content">
+            <h1>Таблицы (CI_MD_TBL)</h1>
+            <div id="nav-buttons">
+                <input id="input-size" type="hidden" value="30"  th:value="${size}"/>
+                <button id="button-prev" onclick="loadTableListPrev()" disabled="true">Предыдущая</button>
+                <button id="button-reload" onclick="reloadTableList()">Запросить</button>
+                <span>cтраницу<input id="input-page" type="number" value="0" th:value="${page}"/></span>
+                из <span id="text-totalPages"></span>
+                <button id="button-next" onclick="loadTableListNext()">Следующая</button>
+            </div>
+            <table class="table-list" id="tables-list">
+                <thead><tr>
+                    <th>id</th>
+                    <th>Тип ключа</th>
+                    <th>Наименование объекта класса</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr></thead>
+                <tbody>
+                    <tr id="row-template">
+                        <td>TABLE_NAME</td>
+                        <td>KEY_TYPE_FLG</td>
+                        <td>ObjEntityName</td>
+                        <td><a >i18n</a></td>
+                        <td>
+                            <a href="#" th:href="@{/tableFields}">Поля</a>
+                        </td>
+                        <td>
+                            <a href="/table/edit/${enitity.id}">Редактировать</a>
+                        </td>
+                        <td>
+                            <a href="#" onclick="deleteTable(${enitity.id})">Удалить</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <a href="tableEdit.html" th:href="@{/tables/add}">Добавить информацию по таблице</a>
+        </div>
+    </div>
+</div>
+<script>reloadTableList()</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+spring:
+  main:
+    allow-circular-references: true
+  data:
+    mongodb:
+      #uri: mongodb+srv://Dennis:12345@cluster0.ykl6u.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+      #database: myFirstDatabase
+      host: localhost
+      port: 27017
+      database: stub
+
+
+
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+  data:
+    mongodb:
+      database: bookDb
+initializeDb: true
+mongock:
+  enabled: true
+  change-logs-scan-package: ru.otus.spring.pantushev.mongock.changelog

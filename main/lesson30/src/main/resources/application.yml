@@ -1,0 +1,107 @@
+spring:
+  main:
+    allow-circular-references: true
+  datasource:
+    url: jdbc:h2:mem:db
+  sql:
+    init:
+
+  jpa:
+    hibernate:
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      ddl-auto: none
+
+    properties:
+      hibernate:
+        #dialect: org.hibernate.dialect.PostgreSQL10Dialect
+
+management:
+  endpoints:
+    enabled-by-default: false
+    web:
+      base-path: /
+      exposure:
+        include: "*"
+  endpoint:
+    #auditevents:
+      #enabled: true
+    beans:
+      #enabled: true
+    caches:
+      #enabled: true
+    info:
+      enabled: true
+    health:
+      enabled: true
+      show-details: always
+    env:
+      #enabled: true
+    metrics:
+      enabled: true
+    heapdump:
+      #enabled: true
+    logfile:
+      enabled: true
+
+server:
+  servlet:
+    session:
+      timeout: 8h
+
+
+---
+spring:
+  config:
+    activate:
+      on-profile: test
+  sql:
+    init:
+      data-locations: testdata.sql
+
+---
+spring:
+  config:
+    activate:
+      on-profile: test-actuator
+management:
+  endpoints:
+    enabled-by-default: false
+    web:
+      base-path: /
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      enabled: true
+      show-details: always
+
+
+
+
+
+---
+spring:
+  config:
+    activate:
+      on-profile: debug-sql
+  jpa:
+    show-sql: true
+  h2:
+    console:
+      enabled: true
+
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+logging:
+  file:
+    name: app.log
+
+
+
+
+

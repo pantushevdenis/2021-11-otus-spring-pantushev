@@ -1,0 +1,99 @@
+spring:
+  main:
+    allow-circular-references: true
+  jpa:
+    hibernate:
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      ddl-auto: none
+
+    properties:
+      hibernate:
+        #dialect: org.hibernate.dialect.PostgreSQL10Dialect
+    database:
+server:
+  servlet:
+    session:
+      timeout: 8h
+
+
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+  datasource:
+    url: jdbc:h2:mem:db
+
+
+---
+spring:
+  config:
+    activate:
+      on-profile: dev-mysql
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/myDB
+    username: root
+    password: password
+  sql:
+    init:
+      mode: always
+
+---
+spring:
+  config:
+    activate:
+      on-profile: dev-docker
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/myDB
+    username: root
+    password: password
+  sql:
+    init:
+      mode: always
+
+
+
+---
+spring:
+  config:
+    activate:
+      on-profile: test
+  sql:
+    init:
+      data-locations: classpath*:testdata.sql
+  datasource:
+    url: jdbc:h2:mem:db
+
+
+---
+spring:
+  config:
+    activate:
+      on-profile: debug-sql
+  jpa:
+    show-sql: true
+  h2:
+    console:
+      enabled: true
+debugsettings:
+  config:
+    activate:
+      on-profile: debug-sql
+  show-h2-console: true
+
+
+---
+spring:
+  config:
+    activate:
+      on-profile: debug-web-secutity
+debugsettings:
+  show-info: true
+
+
+
+
+
+

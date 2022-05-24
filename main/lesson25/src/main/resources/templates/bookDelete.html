@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" type="text/css" href="../static/common.css" th:href="common.css">
+    <meta charset="UTF-8">
+    <title>Hello to Book</title>
+</head>
+<body>
+<div th:replace="_main::body"></div>
+<div th:remove="All">
+    <div th:fragment="allcontent">
+        <div id="menu">
+            <span><a href="books.html" th:href="@{/books}">Книги</a></span>|
+            <span><a href="index.html" th:href="@{/}">Главная</a></span>|
+            <span><a href="authors.html" th:href="@{/authors}">Авторы</a></span>|
+            <spa><a href="jenres.html" th:href="@{/jenres}">Жанры</a></spa>
+        </div>
+        <div id="content">
+            <form id="delete-form" action="delete.html" th:action="@{/books/delete}" th:method="post" th:object="${book}">
+                <input id="id-input" name="id" type="hidden" th:value="${book.id}" value="0" />
+                <h1>Удаление книги</h1>
+                Удалить следующую книгу?
+                <table class="edit-form-table">
+                    <tbody>
+                    <tr>
+                        <th>Id:</th><th><span id="id-text" th:text="*{id}">Какой-то идентификатор книги</span></th>
+                    </tr>
+                    <tr>
+                        <th>Наименование:</th><th><span id="name-text" th:text="*{name}">Какое-то наименование книги</span></th>
+                    </tr>
+                    <tr>
+                        <th>Автор:</th><th><span id="author-name-text" th:text="*{author.name}">Какое-то наименование автора</span></th>
+                    </tr>
+                    </tbody>
+                </table>
+                <button type="submit">Удалить</button>
+                <a href="books.html" th:href="@{/books}"><button type="button">Отмена</button></a>
+
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
